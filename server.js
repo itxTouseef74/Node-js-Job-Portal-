@@ -4,7 +4,7 @@ const dotEnv=require('dotenv');
 const colors=require('colors');
 const cors = require('cors');
 const morgan  = require ('morgan');
-
+const authRoutes=require('./Routes/authRoutes')
 
 
 // config the dotenv 
@@ -19,6 +19,8 @@ app.use(morgan('dev'));
 // ROUTES 
 const routes = require ('./Routes/routes')
 app.use('/api/v1/test' , routes)
+app.use('/api/v1/auth' , authRoutes)
+
 
 // Database 
 const connectDB=require('./Database/db');
